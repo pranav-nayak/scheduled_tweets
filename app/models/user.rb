@@ -5,9 +5,10 @@
 # password_confirmation:string virtual
 
 class User < ApplicationRecord
+  has_many :twitter_accounts
+
   has_secure_password
 
-  validates :name, presence: true
   validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
   validates :password, presence: true, length: { minimum: 6, maximum: 14 }
 end
